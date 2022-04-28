@@ -1,18 +1,23 @@
 package jwjung.spring.remind.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
-@Getter
+@Entity @Getter @NoArgsConstructor
 public class Member {
 
     @Id @GeneratedValue @Setter
     private Long id;
     private String name;
     @Enumerated(EnumType.STRING)
-    private MemberGrade Grade;
+    private MemberGrade grade;
+
+    public Member(String name, MemberGrade grade) {
+        this.name = name;
+        this.grade = grade;
+    }
 
 }
