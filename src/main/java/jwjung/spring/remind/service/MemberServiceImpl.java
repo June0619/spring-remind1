@@ -1,11 +1,7 @@
 package jwjung.spring.remind.service;
 
-import jwjung.spring.remind.config.MemberConfig;
 import jwjung.spring.remind.domain.Member;
-import jwjung.spring.remind.repository.JpaMemberRepository;
 import jwjung.spring.remind.repository.MemberRepository;
-import jwjung.spring.remind.repository.MemoryMemberRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
