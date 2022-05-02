@@ -7,6 +7,8 @@ import jwjung.spring.remind.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/member")
 @RequiredArgsConstructor
@@ -16,8 +18,8 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping
-    public String list() {
-        return memberRepository.findAll().toString();
+    public List<Member> list() {
+        return memberRepository.findAll();
     }
 
     @PostMapping
