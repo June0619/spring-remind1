@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Primary
 public class MemoryMemberRepository implements MemberRepository {
 
     private static HashMap<Long, Member> memory = new HashMap<>();

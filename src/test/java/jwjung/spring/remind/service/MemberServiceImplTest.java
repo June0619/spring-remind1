@@ -22,7 +22,10 @@ class MemberServiceImplTest {
     @DisplayName("회원가입 성공")
     void join() {
         //given
-        Member member = new Member("name", MemberGrade.USER);
+        Member member = Member.builder()
+                .name("name")
+                .grade(MemberGrade.USER)
+                .build();
 
         //when
         Long joinedId = memberService.join(member);
