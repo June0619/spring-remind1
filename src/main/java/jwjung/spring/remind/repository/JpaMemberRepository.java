@@ -1,11 +1,14 @@
 package jwjung.spring.remind.repository;
 
 import jwjung.spring.remind.domain.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class JpaMemberRepository implements MemberRepository {
 
     @Override
