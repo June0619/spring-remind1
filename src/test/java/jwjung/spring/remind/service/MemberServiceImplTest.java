@@ -23,7 +23,7 @@ class MemberServiceImplTest {
     void join() {
         //given
         Member member = Member.builder()
-                .name("name")
+                .name("TEST_MAN")
                 .grade(MemberGrade.USER)
                 .build();
 
