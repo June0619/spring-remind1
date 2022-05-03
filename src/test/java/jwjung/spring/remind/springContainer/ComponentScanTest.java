@@ -1,4 +1,4 @@
-package jwjung.spring.remind.test;
+package jwjung.spring.remind.springContainer;
 
 import jwjung.spring.remind.config.MemberAutoConfig;
 import org.junit.jupiter.api.DisplayName;

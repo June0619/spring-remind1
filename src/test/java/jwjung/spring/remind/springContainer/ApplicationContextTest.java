@@ -1,7 +1,6 @@
-package jwjung.spring.remind.test;
+package jwjung.spring.remind.springContainer;
 
 import jwjung.spring.remind.config.MemberConfig;
-import jwjung.spring.remind.repository.JpaMemberRepository;
 import jwjung.spring.remind.repository.MemberRepository;
 import jwjung.spring.remind.repository.MemoryMemberRepository;
 import jwjung.spring.remind.service.MemberService;

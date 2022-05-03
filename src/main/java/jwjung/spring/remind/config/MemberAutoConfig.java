@@ -6,8 +6,7 @@ import org.springframework.context.annotation.FilterType;
 
 @Configuration
 @ComponentScan(
-        basePackages = "jwjung.spring.remind",
-        excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
+        basePackages = "jwjung.spring.remind"
 )
 public class MemberAutoConfig {
 }
