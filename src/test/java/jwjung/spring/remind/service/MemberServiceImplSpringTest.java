@@ -4,6 +4,7 @@ import jwjung.spring.remind.domain.Member;
 import jwjung.spring.remind.domain.MemberGrade;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

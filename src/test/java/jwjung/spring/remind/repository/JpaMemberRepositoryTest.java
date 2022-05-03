@@ -24,7 +24,7 @@ class JpaMemberRepositoryTest {
     @Test
     @Transactional
     @Rollback(value = false)
-    @DisplayName("JPA save test")
+    @DisplayName("회원 JPA 레포지터리 저장")
     void save() {
         //given
         Member member = Member.builder()

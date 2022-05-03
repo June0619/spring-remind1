@@ -20,7 +20,7 @@ class MemberServiceImplTest {
     }
 
     @Test
-    @DisplayName("회원가입 성공")
+    @DisplayName("[단위] 회원가입 성공")
     void join() {
         //given
         Member member = Member.builder()
