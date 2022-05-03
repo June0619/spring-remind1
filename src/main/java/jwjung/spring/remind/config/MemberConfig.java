@@ -7,15 +7,15 @@ import jwjung.spring.remind.service.MemberServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class MemberConfig {
 
-    @Bean
+//    @Bean
     public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
-    @Bean
+//    @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(memberRepository());
     }

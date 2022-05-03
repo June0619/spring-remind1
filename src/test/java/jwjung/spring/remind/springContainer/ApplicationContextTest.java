@@ -1,6 +1,7 @@
 package jwjung.spring.remind.springContainer;
 
-import jwjung.spring.remind.config.MemberConfig;
+import jwjung.spring.remind.config.MemberAutoConfig;
+import jwjung.spring.remind.repository.JpaMemberRepository;
 import jwjung.spring.remind.repository.MemberRepository;
 import jwjung.spring.remind.repository.MemoryMemberRepository;
 import jwjung.spring.remind.service.MemberService;
@@ -13,7 +14,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class ApplicationContextTest {
 
-    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MemberConfig.class);
+    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MemberAutoConfig.class);
 
     @Test
     @DisplayName("전체 애플리케이션 빈 조회하기")
@@ -42,7 +43,7 @@ public class ApplicationContextTest {
     @DisplayName("회원 리포지토리 빈 찾아오기")
     void findMemberRepositoryBean() {
         MemberRepository memberRepository = ac.getBean(MemberRepository.class);
-        Assertions.assertThat(memberRepository).isInstanceOf(MemoryMemberRepository.class);
+        Assertions.assertThat(memberRepository).isInstanceOf(JpaMemberRepository.class);
     }
 
 }

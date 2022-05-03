@@ -1,26 +1,28 @@
 package jwjung.spring.remind.service;
 
-import jwjung.spring.remind.repository.MemberRepository;
-import jwjung.spring.remind.repository.MemoryMemberRepository;
 import jwjung.spring.remind.domain.Member;
 import jwjung.spring.remind.domain.MemberGrade;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 
-class MemberServiceImplTest {
+import javax.persistence.EntityManager;
 
-    private MemberService memberService;
+@Transactional(readOnly = true)
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
+public class MemberServiceImplSpringTest {
 
-    @BeforeEach
-    void beforeEach() {
-        MemberRepository memberRepository = new MemoryMemberRepository();
-        this.memberService = new MemberServiceImpl(memberRepository);
-    }
+    @Autowired private MemberService memberService;
+    @Autowired private EntityManager em;
 
     @Test
-    @DisplayName("회원가입 성공")
+    @Transactional
     void join() {
         //given
         Member member = Member.builder()
@@ -35,6 +37,6 @@ class MemberServiceImplTest {
         Member findMember = memberService.findOne(joinedId).get();
         Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
         Assertions.assertThat(findMember.getGrade()).isEqualTo(member.getGrade());
+        em.flush();
     }
-
 }
