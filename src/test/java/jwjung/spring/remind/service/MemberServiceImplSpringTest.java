@@ -3,6 +3,7 @@ package jwjung.spring.remind.service;
 import jwjung.spring.remind.domain.Member;
 import jwjung.spring.remind.domain.MemberGrade;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class MemberServiceImplSpringTest {
     @Autowired private MemberService memberService;
     @Autowired private EntityManager em;
 
-    @Test
+    @Test @DisplayName("[통합] 회원가입 성공")
     @Transactional
     void join() {
         //given
