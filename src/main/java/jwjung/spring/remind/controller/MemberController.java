@@ -5,8 +5,10 @@ import jwjung.spring.remind.dto.MemberDTO;
 import jwjung.spring.remind.repository.MemberRepository;
 import jwjung.spring.remind.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -23,7 +25,7 @@ public class MemberController {
     }
 
     @PostMapping
-    public String join(@RequestBody MemberDTO memberDTO) {
+    public ResponseEntity<Object> join(@RequestBody MemberDTO memberDTO) {
 
         System.out.println("memberDTO = " + memberDTO.toString());
 
@@ -32,10 +34,9 @@ public class MemberController {
                 .grade(memberDTO.getMemberGrade())
                 .build();
 
-        memberService.join(member);
+        Long resource = memberService.join(member);
 
-//        return memberService.join()
-        return String.valueOf(member.getId());
+        return ResponseEntity.created(URI.create(resource.toString())).build();
     }
 
 }
