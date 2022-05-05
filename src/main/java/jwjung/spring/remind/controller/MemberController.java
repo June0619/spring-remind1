@@ -20,12 +20,12 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping
-    public List<Member> list() {
-        return memberRepository.findAll();
+    public ResponseEntity<List<Member>> list() {
+        return ResponseEntity.ok(memberRepository.findAll());
     }
 
     @PostMapping
-    public ResponseEntity<Object> join(@RequestBody MemberDTO memberDTO) {
+    public ResponseEntity<String> join(@RequestBody MemberDTO memberDTO) {
 
         System.out.println("memberDTO = " + memberDTO.toString());
 
