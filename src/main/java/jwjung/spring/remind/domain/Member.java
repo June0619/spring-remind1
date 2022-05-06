@@ -11,6 +11,7 @@ import javax.persistence.*;
 public class Member {
 
     @Id @GeneratedValue @Setter
+    @Column(name = "MEMBER_ID")
     private Long id;
     private String name;
     @Enumerated(EnumType.STRING)
