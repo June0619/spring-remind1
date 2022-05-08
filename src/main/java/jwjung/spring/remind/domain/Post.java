@@ -1,8 +1,7 @@
 package jwjung.spring.remind.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Post {
@@ -11,4 +10,10 @@ public class Post {
     @Column(name = "POST_ID")
     private Long id;
 
+    @OneToOne
+    @JoinColumn(name = "member")
+    private Member author;
+    private String text;
+    private LocalDate createdAt;
+    private LocalDate modifiedAt;
 }
