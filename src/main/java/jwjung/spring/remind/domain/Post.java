@@ -1,10 +1,15 @@
 package jwjung.spring.remind.domain;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-public class Post {
+@Entity @Getter
+@NoArgsConstructor
+public class Post extends BaseEntity {
 
     @Id
     @Column(name = "POST_ID")
@@ -14,6 +19,11 @@ public class Post {
     @JoinColumn(name = "member")
     private Member author;
     private String text;
-    private LocalDate createdAt;
-    private LocalDate modifiedAt;
+
+    @Builder
+    public Post(Member member, String text) {
+        this.author = member;
+        this.text = text;
+    }
+
 }
