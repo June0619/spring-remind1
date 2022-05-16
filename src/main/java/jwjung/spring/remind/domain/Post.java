@@ -1,5 +1,6 @@
 package jwjung.spring.remind.domain;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,10 +9,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity @Getter
-@NoArgsConstructor
-public class Post extends BaseEntity {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Post {
 
-    @Id
+    @Id @GeneratedValue
     @Column(name = "POST_ID")
     private Long id;
 
@@ -21,8 +22,8 @@ public class Post extends BaseEntity {
     private String text;
 
     @Builder
-    public Post(Member member, String text) {
-        this.author = member;
+    public Post(Member author, String text) {
+        this.author = author;
         this.text = text;
     }
 
