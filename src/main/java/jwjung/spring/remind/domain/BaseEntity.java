@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-@Getter @Setter
+@Getter
 public abstract class BaseEntity {
 
     @OneToOne

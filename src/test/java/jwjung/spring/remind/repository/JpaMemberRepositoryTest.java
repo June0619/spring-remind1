@@ -23,7 +23,6 @@ class JpaMemberRepositoryTest {
 
     @Test
     @Transactional
-    @Rollback(value = false)
     @DisplayName("회원 JPA 레포지터리 저장")
     void save() {
         //given
