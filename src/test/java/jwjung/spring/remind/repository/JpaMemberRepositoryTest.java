@@ -24,7 +24,7 @@ class JpaMemberRepositoryTest {
     @Test
     @Transactional
     @DisplayName("회원 JPA 레포지터리 저장")
-    void save() {
+    void save() throws Exception {
         //given
         Member member = Member.builder()
                 .name("TEST_USER")
@@ -35,7 +35,7 @@ class JpaMemberRepositoryTest {
 
         //when
         Optional<Member> optionalMember = memberRepository.findOne(member.getId());
-        Member findMember = optionalMember.orElseGet(Member::new);
+        Member findMember = optionalMember.orElseThrow(Exception::new);
 
         //then
         assertThat(findMember).isEqualTo(member);
